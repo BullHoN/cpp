@@ -3,9 +3,16 @@
 using namespace std;
 
 
-template<typename T1,typename T2>
-auto Add(T1 a,T2 b) -> decltype(a+b){ // trailing return type
+template<typename T1>
+T1 Add(T1 a,T1 b){ // trailing return type
     return a + b;
+}
+
+// template Specialization
+template <>
+const char* Add(const char* a,const char* b) {
+    string result = string(a) + string(b);
+    return strdup(result.c_str()); 
 }
 
 template<typename T>
@@ -45,9 +52,10 @@ public:
 };
 
 int main(){
-    cout << Add<int,double>(1,20.22) << endl;
-    cout << Add<string,string>("Hello"," World") << endl;
+    cout << Add(1,20) << endl;
+    // cout << Add("Hello"," World") << endl;
 
+    cout << Add("Hello","World") << endl;
     vector<int> arr = {1,2,3,4};
     list<int> arr2 = {3,4,5,6};
     vector<string> arr3 = {"op","op"};
