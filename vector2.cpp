@@ -60,9 +60,8 @@ public:
     }
 
     void pop_back(){
-        if(_size >= 0){
-            data[_size--] = T();
-        }
+        if(_size == 0) return;
+        data[--_size] = T();
     }
 
     Vector(const Vector &other) {
@@ -153,39 +152,44 @@ int main(){
 
     // vector<int> v3 = {1,2,3,4};
 
-    vector<Person> vcustom;
-    vcustom.emplace_back("vaibhav",1);
+    // vector<Person> vcustom;
+    // vcustom.emplace_back("vaibhav",1);
 
 
     // Vector<int> v1(10);
     // cout << v1.size() << " " << v1.capacity() << endl;
 
-    Vector<int> v;
+    // Vector<int> v;
     // cout << v.size() << " " << v.capacity() << endl;
-    Vector<int> v5 = {1,2,3,4,5};
+    // Vector<int> v5 = {1,2,3,4,5};
 
-    for(int i=1;i<=100;i++){
-        v.push_back(i);
-    }
+    // for(int i=1;i<=100;i++){
+    //     v.push_back(i);
+    // }
 
-    cout << v.size() << endl;
-    v.pop_back();
-    cout << v.size() << endl;
+    // cout << v.size() << endl;
+    // v.pop_back();
+    // cout << v.size() << endl;
 
-    cout << v[11] << endl;
+    // cout << v[11] << endl;
 
-    Vector<int> v2 = v;
-    cout << "New Vector " << v2.size() << endl;
+    // Vector<int> v2 = v;
+    // cout << "New Vector " << v2.size() << endl;
 
-    Vector<int> v3;
-    v3 = v2;
+    // Vector<int> v3;
+    // v3 = v2;
 
-    cout << "New Vector " << v3.size() << endl;
+    // cout << "New Vector " << v3.size() << endl;
 
-    Vector<int> v4 = move(v2);
-    cout << v4.size() << endl;
+    // Vector<int> v4 = move(v2);
+    // cout << v4.size() << endl;
 
 
-    print(1,2,3,4,5,"hello world");
+    // print(1,2,3,4,5,"hello world");
+
+    Vector<int> pops = {1,2,3,4};
+    pops.pop_back();
+
+    cout << pops[2] << endl;
 
 }
