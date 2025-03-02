@@ -12,7 +12,9 @@ public:
 
     Vector() : data(nullptr), _capacity(0), _size(0) {}
 
-    Vector(int initsize) : data(new T[initsize]), _capacity(initsize), _size(0) {}
+    Vector(int initsize) : data(new T[initsize]), _capacity(initsize), _size(0) {
+        
+    }
 
     Vector(std::initializer_list<T> lst) : Vector(lst.size()) {
         for(auto &itr : lst) push_back(itr);
@@ -61,6 +63,7 @@ public:
 
     void pop_back(){
         if(_size == 0) return;
+        ~data[_size];
         data[--_size] = T();
     }
 
