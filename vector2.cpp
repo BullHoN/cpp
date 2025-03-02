@@ -63,7 +63,7 @@ public:
 
     void pop_back(){
         if(_size == 0) return;
-        ~data[_size];
+        data[_size].~T();
         data[--_size] = T();
     }
 
