@@ -36,7 +36,7 @@ int mulithreading_sum(vector<int> &v){
 
 int main(){
 
-    const int TOTAL = 1000000;
+    const int TOTAL = 10000000;
     vector<int> vec(TOTAL,1);
 
     // sum of all elements inside vector
