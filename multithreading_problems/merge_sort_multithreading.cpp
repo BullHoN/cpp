@@ -65,6 +65,16 @@ int* createArray(int n){
     for(int i=0;i<n;i++) arr[i] = n - i;
     return arr;
 }
+
+template <typename Function, typename... Args>
+void measureExecutionTime(Function func, Args&&... args) {
+    auto start_time = chrono::high_resolution_clock::now();
+    func(forward<Args>(args)...);
+    auto end_time = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = end_time - start_time;
+    cout << "Execution time: " << elapsed.count() << " seconds" << endl;
+}
+
 int main(){
 
     int n = 1000000;
